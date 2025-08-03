@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:alfheimr_portal_frame_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "yggdrasil:blocks/alfheimr_portal_frame_block"
+}

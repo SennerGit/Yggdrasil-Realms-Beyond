@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.WallSignBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.sen.yggdrasil.common.item.PortalActivatorItem;
 import net.sen.yggdrasil.common.utils.ModUtils;
 
 import java.util.Locale;
@@ -18,6 +19,8 @@ import java.util.function.Supplier;
 
 public class YggdrasilRealmsBeyondItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ModUtils.getModId());
+
+    public static final Supplier<Item> BASIC_PORTAL_ACTIVATOR = createItem("basic_portal_activator", () -> new PortalActivatorItem(0));
 
     private static DeferredItem<Item> createItem(String name) {
         return ITEMS.register(name, () -> new Item(new Item.Properties()));

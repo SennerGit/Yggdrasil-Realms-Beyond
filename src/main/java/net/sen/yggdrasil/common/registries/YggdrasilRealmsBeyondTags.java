@@ -15,6 +15,7 @@ import java.util.function.BiConsumer;
 
 public class YggdrasilRealmsBeyondTags {
     public static class Blocks {
+        public static final TagKey<Block> CARVER_REPLACEABLES = createTag("carver_replaceables");
         private static TagKey<Block> createTag(String name) { return TagKey.create(Registries.BLOCK, ModUtils.getModPath(name)); }
     }
     public static class Items {

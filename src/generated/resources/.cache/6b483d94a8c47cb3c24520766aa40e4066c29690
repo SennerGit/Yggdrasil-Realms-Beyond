@@ -1,1 +1,7 @@
-// 1.21.1	2025-07-28T10:06:18.9776368	Block States: yggdrasil
+// 1.21.1	2025-07-28T14:32:19.2037661	Block States: yggdrasil
+c4e344cf969a81096b16a4f6b87c6d57367a43c2 assets/yggdrasil/blockstates/alfheimr_portal_block.json
+07f774e5d14390fd8135c2b71acd88fa488a09a2 assets/yggdrasil/blockstates/alfheimr_portal_frame_block.json
+b8bf6b209ab999be6aabe3d35c6e433f4750c61f assets/yggdrasil/models/block/alfheimr_portal_block_ew.json
+20f2f1caf700df5567ae986559c5ac4461453d97 assets/yggdrasil/models/block/alfheimr_portal_block_ns.json
+98246549699d288a314651d2e77bdffa64e2a710 assets/yggdrasil/models/block/alfheimr_portal_frame_block.json
+56f38b31fbd18375788a99401de72454b8130694 assets/yggdrasil/models/item/alfheimr_portal_frame_block.json

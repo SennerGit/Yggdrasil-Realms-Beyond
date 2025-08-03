@@ -11,6 +11,7 @@ public class ModItemModelProvider extends ModItemModelHelper {
 
     @Override
     protected void generateItems() {
+        simpleItem(BASIC_PORTAL_ACTIVATOR);
     }
 
     @Override

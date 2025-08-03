@@ -1,15 +1,20 @@
 package net.sen.yggdrasil.data.models;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.sen.yggdrasil.common.utils.ModUtils;
+
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public abstract class ModBlockStateHelper extends BlockStateProvider {
@@ -268,5 +273,51 @@ public abstract class ModBlockStateHelper extends BlockStateProvider {
         blockItem(stoneBricksStairs);
         blockItem(stoneBricksSlabs);
 //        blockItem(stoneBricksWall);
+    }
+
+    protected void makePortalBlock(Supplier<Block> block, EnumProperty<Direction.Axis> AXIS) {
+        String path = BuiltInRegistries.BLOCK.getKey(block.get()).getPath().toLowerCase(Locale.ROOT);
+        ResourceLocation loc = ResourceLocation.fromNamespaceAndPath(ModUtils.getModId(), "block/" + path);
+        ResourceLocation loc_ew = ResourceLocation.fromNamespaceAndPath(ModUtils.getModId(), "block/" + path + "_ew");
+        ResourceLocation loc_ns = ResourceLocation.fromNamespaceAndPath(ModUtils.getModId(), "block/" + path + "_ns");
+
+        BlockModelBuilder model_ew = models()
+                .getBuilder(loc_ew.toString())
+                .texture("particle", loc)
+                .texture("portal", loc)
+
+                .element()
+                .from(6, 0, 0)
+                .to(10, 16, 16)
+                .face(Direction.EAST).uvs(0, 0, 16, 16).texture("#portal").end()
+                .face(Direction.WEST).uvs(0, 0, 16, 16).texture("#portal").end()
+                .end();
+
+        BlockModelBuilder model_ns = models()
+                .getBuilder(loc_ns.toString())
+                .texture("particle", loc)
+                .texture("portal", loc)
+
+                .element()
+                .from(0, 0, 6)
+                .to(16, 16, 10)
+                .face(Direction.NORTH).uvs(0, 0, 16, 16).texture("#portal").end()
+                .face(Direction.SOUTH).uvs(0, 0, 16, 16).texture("#portal").end()
+                .end();
+
+        getVariantBuilder(block.get())
+                .forAllStates(state -> {
+                    switch (state.getValue(AXIS)) {
+                        case X -> {
+                            return ConfiguredModel.builder().modelFile(model_ns).build();
+                        }
+
+                        case Z -> {
+                            return ConfiguredModel.builder().modelFile(model_ew).build();
+                        }
+                    }
+
+                    return null;
+                });
     }
 }

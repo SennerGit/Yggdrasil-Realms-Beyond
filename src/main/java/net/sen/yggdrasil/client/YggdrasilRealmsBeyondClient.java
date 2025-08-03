@@ -1,6 +1,8 @@
 package net.sen.yggdrasil.client;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.sounds.SoundEvents;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -36,5 +38,9 @@ public class YggdrasilRealmsBeyondClient {
     }
 
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
+    }
+
+    public static void playAlfheimrPortalSound() {
+        Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forLocalAmbience(SoundEvents.PORTAL_TRAVEL, 1.0F, 1.0F));
     }
 }

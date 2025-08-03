@@ -1,7 +1,10 @@
 package net.sen.yggdrasil;
 
+import com.google.common.reflect.Reflection;
 import net.neoforged.api.distmarker.Dist;
 import net.sen.yggdrasil.common.config.Config;
+import net.sen.yggdrasil.common.events.YggdrasilRealmsBeyondEventHandler;
+import net.sen.yggdrasil.common.world.biomes.builders.AlfheimrBiomeBuilder;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -26,13 +29,17 @@ public class YggdrasilRealmsBeyond {
             YggdrasilRealmsBeyondClient.YggdrasilRealmsBeyondClientRegistry(eventBus);
         }
 
+        YggdrasilRealmsBeyondEventHandler.initCommonEvents(eventBus);
+
         YggdrasilRealmsBeyondBlocks.register(eventBus);
         YggdrasilRealmsBeyondItems.register(eventBus);
         YggdrasilRealmsBeyondBlockEntities.register(eventBus);
         YggdrasilRealmsBeyondEntityTypes.register(eventBus);
         YggdrasilRealmsBeyondArmourMaterials.register(eventBus);
         YggdrasilRealmsBeyondCreativeModeTabs.register(eventBus);
-        
+        YggdrasilRealmsBeyondPointOfInterests.register(eventBus);
+        YggdrasilRealmsBeyondCarvers.register(eventBus);
+
         NeoForge.EVENT_BUS.register(this);
         eventBus.addListener(this::commonSetup);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -45,6 +52,9 @@ public class YggdrasilRealmsBeyond {
     }
 
     private void preInit(FMLCommonSetupEvent event) {
+        Reflection.initialize(
+                AlfheimrBiomeBuilder.class
+        );
     }
 
     private void init(FMLCommonSetupEvent event) {

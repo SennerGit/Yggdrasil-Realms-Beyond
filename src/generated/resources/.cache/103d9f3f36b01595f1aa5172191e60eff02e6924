@@ -1,1 +1,5 @@
-// 1.21.1	2025-07-28T10:06:18.9841475	Registries
+// 1.21.1	2025-08-03T13:44:04.5213515	Registries
+93ea6d3bf23c52aed2b4c44b5c931b972ac292c3 data/yggdrasil/dimension/alfheimr.json
+253a9796926738e3d67a39428c4d179610e6e6da data/yggdrasil/dimension_type/alfheimr.json
+5e2bf263b2b48102d69b23aa1d9f16d13f54a010 data/yggdrasil/worldgen/biome/test_biome.json
+409675b7ab9432f420acb10ebee1f04ca2d89a68 data/yggdrasil/worldgen/configured_carver/alfheimr_carver.json

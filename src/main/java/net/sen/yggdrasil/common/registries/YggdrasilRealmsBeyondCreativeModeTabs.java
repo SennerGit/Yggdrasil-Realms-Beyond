@@ -26,7 +26,9 @@ public class YggdrasilRealmsBeyondCreativeModeTabs {
                 .icon(() -> new ItemStack(Items.STICK))
                 .title(Component.translatable(generateName("minecraft_untamed_tab")))
                 .displayItems(((itemDisplayParameters, output) -> {
-                            createSpawnEggsAlphabetical(output);
+                    output.accept(ALFHEIMR_PORTAL_FRAME_BLOCK.get());
+                    output.accept(BASIC_PORTAL_ACTIVATOR.get());
+                    createSpawnEggsAlphabetical(output);
                 })
                 )
                 .build();

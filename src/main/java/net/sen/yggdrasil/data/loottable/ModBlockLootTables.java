@@ -17,6 +17,6 @@ public class ModBlockLootTables extends BlockLootTableHelper {
 
     @Override
     protected void generate() {
-
+        dropSelf(ALFHEIMR_PORTAL_FRAME_BLOCK);
     }
 }

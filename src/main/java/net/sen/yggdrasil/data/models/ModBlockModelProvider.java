@@ -15,6 +15,7 @@ public class ModBlockModelProvider extends BlockModelProvider {
 
     @Override
     protected void registerModels() {
+
     }
 
     private ResourceLocation modResourceLocation(DeferredBlock<Block> block) {

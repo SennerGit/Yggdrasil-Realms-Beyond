@@ -2,8 +2,10 @@ package net.sen.yggdrasil.data.tags;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.sen.yggdrasil.common.registries.YggdrasilRealmsBeyondTags;
 import net.sen.yggdrasil.common.utils.ModUtils;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,7 +29,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     }
     protected void addModTags(HolderLookup.Provider pProvider) {
-
+        this.tag(YggdrasilRealmsBeyondTags.Blocks.CARVER_REPLACEABLES).add(
+                Blocks.STONE,
+                Blocks.DEEPSLATE,
+                Blocks.NETHERRACK,
+                Blocks.END_STONE
+        );
     }
 
     @Override

@@ -19,6 +19,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sen.yggdrasil.common.block.ModBushBlock;
 import net.sen.yggdrasil.common.block.ModCropBlock;
+import net.sen.yggdrasil.common.block.portal.alfheimr.AlfheimrPortalBlock;
 import net.sen.yggdrasil.common.utils.ModUtils;
 
 import java.util.Locale;
@@ -27,6 +28,16 @@ import java.util.function.Supplier;
 public class YggdrasilRealmsBeyondBlocks {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ModUtils.getModId());
     private static final DeferredRegister.Items BLOCK_ITEMS = DeferredRegister.createItems(ModUtils.getModId());
+
+    //Alfheimr
+    public static final Supplier<Block> ALFHEIMR_PORTAL_BLOCK = createBlock("alfheimr_portal_block", AlfheimrPortalBlock::new);
+    public static final Supplier<Block> ALFHEIMR_PORTAL_FRAME_BLOCK = createBlock("alfheimr_portal_frame_block");
+
+    //Nidavellir
+
+    //Atlantis
+
+    //Skyopia
 
     private static Supplier<Block> createBlock(String name) {
         Supplier<Block> toReturn = BLOCKS.register(name.toLowerCase(Locale.ROOT), () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));

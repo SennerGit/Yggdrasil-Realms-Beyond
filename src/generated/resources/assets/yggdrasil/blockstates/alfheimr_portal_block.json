@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "yggdrasil:block/alfheimr_portal_block_ns"
+    },
+    "axis=z": {
+      "model": "yggdrasil:block/alfheimr_portal_block_ew"
+    }
+  }
+}

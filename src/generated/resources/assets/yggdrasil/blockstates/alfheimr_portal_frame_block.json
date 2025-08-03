@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "yggdrasil:block/alfheimr_portal_frame_block"
+    }
+  }
+}
